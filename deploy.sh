@@ -1,8 +1,7 @@
 #!/bin/bash
-docker build -t louspringer/sample-node .
 docker push louspringer/sample-node
 
-ssh deploy@192.168.0.108 << EOF
+ssh -p 10022 deploy@solutions.viawest.com << EOF
 docker pull louspringer/sample-node:latest
 docker stop web || true
 docker rm web || true
