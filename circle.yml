@@ -1,0 +1,11 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t louspringer/sample-node .
+
+test:
+  override:
+    - docker run louspringer/sample-node npm test
