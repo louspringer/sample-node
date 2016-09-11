@@ -18,16 +18,16 @@ deployment:
     branch: master
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - ./deploy.sh
+      - sh ./deploy.sh
   staging:
     branch: staging
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker tag louspringer/sample-node:latest louspringer/sample-node:staging
-      - ./deploy-staging.sh
+      - sh ./deploy-staging.sh
   qa:
     branch: qa
     commands:
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker tag louspringer/sample-node:latest louspringer/sample-node:qa
-      - ./deploy-qa.sh
+      - sh ./deploy-qa.sh 
